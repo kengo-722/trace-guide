@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国見アカウントのなぞり方</title>
+<meta name="description" content="Threadsで伸びているスピリチュアル系アカウント「国見」の運用構造と投稿の型を分析し、自分のキャラでなぞる方法をまとめた手引き。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE  教本。落ち着いて、細部まで正確に
+   IDEA   添削された原稿。実際の投稿に蛍光ペンと赤字で役割を書き込んだノート
+   PICTURE 1日の投稿の流れを駅のように並べた路線図
+   COLOUR 白地、墨の黒、朱色の赤字。役割ごとに7色の蛍光ペン
+   TYPE   見出しは明朝（しっぽり明朝）、本文はNoto Sans JP
+   LAYOUT 上に結論と数字と路線図。以下、章ごとに「型（抽象）→実物（具体）」 */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121212);--ink:light-dark(#141414,#ececec);--sub:light-dark(#5b5b5b,#a9a9a9);--line:light-dark(#e3e3e3,#2e2e2e);--panel:light-dark(#f6f6f4,#1b1b1b);--red:light-dark(#c9301b,#ff6b55);--band:#141414;
+--m1:light-dark(#ffe36e,#6b5a00);--m2:light-dark(#ffc2d3,#6e2438);--m3:light-dark(#bcdcff,#1f4470);--m4:light-dark(#c4ecbc,#25552a);--m5:light-dark(#b2ece4,#17544d);--m6:light-dark(#ffd09e,#6b3d0e);--m7:light-dark(#ddd0ff,#45307a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans JP","Hiragino Sans",sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(32px,5vw,50px);margin:0 0 14px}
+h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 8px}
+h3{font-size:21px;margin:36px 0 10px}
+p{margin:0 0 14px}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
+.top{background:var(--band);color:#f4f4f4}
+.top .lead{font-size:18px;max-width:46em;color:#dcdcdc}
+.top .lead b{color:#fff;background:linear-gradient(transparent 62%,#c9301b 62%)}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:12px;margin:26px 0 30px}
+.fig1{border-top:2px solid #444;padding-top:10px}
+.fig1 .n{font-family:"Shippori Mincho B1",serif;font-size:clamp(28px,4vw,40px);font-weight:800;white-space:nowrap}
+.fig1 .n small{font-size:16px;color:#bbb;font-weight:700;margin-inline:4px}
+.fig1 .l{font-size:14px;color:#bdbdbd}
+.route{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:8px;position:relative}
+.route::before{content:"";position:absolute;left:4%;right:4%;top:23px;height:4px;background:#c9301b}
+.st{position:relative;padding:0 6px;text-align:center}
+.st .dot{width:50px;height:50px;border-radius:50%;margin:0 auto 10px;background:#141414;border:4px solid #c9301b;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;white-space:nowrap}
+.st b{display:block;font-size:15px;color:#fff}
+.st span{display:block;font-size:13px;color:#bdbdbd;line-height:1.5}
+@media(max-width:760px){.route{grid-template-columns:1fr;gap:14px}.route::before{left:23px;right:auto;top:10px;bottom:10px;width:4px;height:auto}.st{display:grid;grid-template-columns:50px 1fr;gap:12px;text-align:left;align-items:center}.st .dot{margin:0}}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.toc .scroll{display:flex;gap:4px;overflow-x:auto;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto}
+nav.toc a{flex:none;color:var(--ink);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:6px}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--panel);outline:none}
+.copy{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+.copy button{font:inherit;font-size:15px;font-weight:700;min-height:44px;padding:0 18px;border-radius:8px;border:1px solid #666;background:#fff;color:#141414;cursor:pointer}
+.copy button:focus-visible{outline:3px solid #c9301b;outline-offset:2px}
+.copy span{font-size:14px;color:#bdbdbd}
+section.band{border-bottom:1px solid var(--line)}
+.kicker{color:var(--red);font-weight:700;font-size:15px;margin-bottom:4px}
+.point{font-size:18px;max-width:44em}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+.panel{background:var(--panel);border-radius:10px;padding:18px 20px}
+.panel h4{margin:0 0 8px;font-size:16px}
+ol.roles{margin:0;padding-left:1.4em}
+ol.roles li{margin-bottom:6px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{font-size:14px;color:var(--sub);font-weight:700}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.hi td{background:color-mix(in srgb,var(--red) 8%,transparent)}
+.post{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--bg)}
+.post .meta{font-size:13px;color:var(--sub);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:4px 14px}
+.post .meta b{color:var(--ink)}
+.post .who{font-weight:700;font-size:15px}
+.para{display:grid;grid-template-columns:6.6em minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px dashed var(--line)}
+.para:first-of-type{border-top:0}
+.para p{margin:0}
+.tag{font-size:12px;font-weight:700;border-radius:4px;padding:2px 6px;align-self:start;text-align:center;line-height:1.5}
+@media(max-width:520px){.para{grid-template-columns:1fr;gap:4px}.tag{justify-self:start}}
+.t1{background:var(--m1)}.t2{background:var(--m2)}.t3{background:var(--m3)}.t4{background:var(--m4)}.t5{background:var(--m5)}.t6{background:var(--m6)}.t7{background:var(--m7)}
+mark{color:inherit;padding:0 1px;border-radius:2px}
+mark.t1{background:linear-gradient(transparent 45%,var(--m1) 45%)}mark.t2{background:linear-gradient(transparent 45%,var(--m2) 45%)}mark.t3{background:linear-gradient(transparent 45%,var(--m3) 45%)}mark.t4{background:linear-gradient(transparent 45%,var(--m4) 45%)}mark.t5{background:linear-gradient(transparent 45%,var(--m5) 45%)}mark.t6{background:linear-gradient(transparent 45%,var(--m6) 45%)}mark.t7{background:linear-gradient(transparent 45%,var(--m7) 45%)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+.legend .tag{font-size:13px;padding:4px 10px}
+.note{font-size:14px;color:var(--sub)}
+.red{color:var(--red);font-weight:700}
+.cut{color:var(--red);font-size:13px;font-weight:700;margin-left:4px}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-bottom:12px}
+@media(max-width:860px){.pair{grid-template-columns:1fr}}
+.pair .post{height:100%}
+.rule{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:14px;padding:22px 0;border-top:1px solid var(--line)}
+.rule .no{font-family:"Shippori Mincho B1",serif;font-size:34px;font-weight:800;color:var(--red);line-height:1}
+.ex{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:10px}
+@media(max-width:700px){.ex{grid-template-columns:1fr}}
+.ex div{border-radius:8px;padding:12px 14px;font-size:15px}
+.ex .ok{background:color-mix(in srgb,#2e9a4b 12%,transparent)}
+.ex .ng{background:color-mix(in srgb,var(--red) 10%,transparent)}
+.ex b{display:block;font-size:13px;margin-bottom:4px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.4em minmax(0,1fr);gap:12px;background:var(--panel);border-radius:10px;padding:14px 16px}
+.steps li::before{content:counter(s);font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:26px;color:var(--red);line-height:1.1}
+.steps b{display:block}
+.bar{display:flex;align-items:center;gap:10px;font-size:14px;margin:6px 0}
+.bar .lbl{width:11em;flex:none}
+.bar .track{flex:1;background:var(--panel);border-radius:4px;height:22px;position:relative}
+.bar .fill{height:100%;border-radius:4px;background:var(--red)}
+.bar .fill.q{background:color-mix(in srgb,var(--ink) 35%,transparent)}
+.bar .v{width:4.2em;flex:none;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:520px){.bar .lbl{width:7.5em}}
+footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
+@media(max-width:600px){table{font-size:13px}th,td{padding:7px 5px}.stack thead{display:none}.stack tr{display:grid;padding-block:8px;border-bottom:1px solid var(--line)}.stack td{border:0;padding:2px 0}.stack td::before{content:attr(data-l);display:block;font-size:12px;color:var(--sub);font-weight:700}.stack td.num{text-align:left}}
+</style>
+</head>
+<body>
+
+<header class="top band">
+<div class="wrap">
+<h1>国見アカウントのなぞり方</h1>
+<p class="lead">Threadsのスピリチュアル系アカウント「国見（kunimi_kansoku）」は、2026年11月から急に伸びました。<b>伸びた理由は、ツリーでコメントを「参加の場」に変えたことと、1日の投稿の流れを固定したことです。</b>このページは、その運用の構造から1文ずつの書き方までを分解し、自分のキャラでなぞれるようにまとめたものです。</p>
+
+<div class="figs">
+<div class="fig1"><div class="n">1<small>→</small>54</div><div class="l">1投稿あたりの返信数（中央値）<br>10月 → 11/16の週</div></div>
+<div class="fig1"><div class="n">24<small>→</small>81</div><div class="l">1投稿あたりのいいね数（中央値）<br>10/19の週 → 11/16の週</div></div>
+<div class="fig1"><div class="n">35<small>→</small>18</div><div class="l">週の投稿数<br>本数は半分に絞った</div></div>
+<div class="fig1"><div class="n">169<small>→</small>260</div><div class="l">親投稿の文字数（中央値）<br>1本を長く、濃くした</div></div>
+</div>
+
+<div class="route" aria-label="国見の1日の投稿の流れ">
+<div class="st"><div class="dot">6:00</div><div><b>朝の投稿</b><span>ニュースへの怒り。底の数字を作る</span></div></div>
+<div class="st"><div class="dot">不定期</div><div><b>サブ枠</b><span>生まれ月などの型を試す</span></div></div>
+<div class="st"><div class="dot">20:00</div><div><b>夜の投稿</b><span>大きく伸ばす。コメントを集める</span></div></div>
+<div class="st"><div class="dot">0:00</div><div><b>ゴースト投稿</b><span>24時間限定で固定投稿へ送る</span></div></div>
+<div class="st"><div class="dot">常設</div><div><b>固定投稿</b><span>初回無料の鑑定を案内する</span></div></div>
+<div class="st"><div class="dot">LINE</div><div><b>公式LINE</b><span>「鑑定希望」と送らせる</span></div></div>
+</div>
+
+<div class="copy">
+<button type="button" id="copyAll">このページの全文をコピー</button>
+<span id="copyMsg">自分のAIに読ませたいときは、このページのURLを貼るか、全文をコピーして貼り付けてください。</span>
+</div>
+</div>
+</header>
+
+<nav class="toc" aria-label="目次"><div class="scroll">
+<a href="#c0">はじめに</a><a href="#c1">1. 何が起きたか</a><a href="#c2">2. 運用の構造</a><a href="#c3">3. 枠ごとの型</a><a href="#c4">4. 部品</a><a href="#c5">5. 書き方の原則</a><a href="#c6">6. キャラへの当てはめ方</a><a href="#c7">7. なぞる手順と実例</a><a href="#c8">8. 分析で分かった数字</a>
+</div></nav>
+
+<main>
+
+<section class="band" id="c0"><div class="wrap">
+<div class="kicker">はじめに</div>
+<h2>何を材料に、何が分かるのか</h2>
+<div class="two">
+<div>
+<p>材料は、国見の全891投稿（2026年11月24日時点のデータ）、そのうち直近2週間の36本、ツリー（自分の投稿への返信）7本のスクリーンショット、ゴースト投稿2本、固定投稿1本です。いいね数・返信数は取得した時点の数字です。</p>
+<p>このページを読むと、次の3つが分かります。</p>
+<ol class="roles">
+<li>国見がどういう流れで1日を回し、フォロワーをLINEまで運んでいるか</li>
+<li>投稿の枠ごとに、段落がどういう役割で並んでいるか</li>
+<li>それを自分のキャラの言葉に置き換えて、なぞって書く方法</li>
+</ol>
+</div>
+<div class="panel">
+<h4>このページで使う言葉</h4>
+<div class="scroll"><table>
+<tr><th>親投稿</th><td>タイムラインに流れる最初の投稿。最初の数行で読まれるかが決まる</td></tr>
+<tr><th>ツリー</th><td>親投稿に、自分で続けて返信した投稿。親投稿の続きと、コメントの呼びかけを書く</td></tr>
+<tr><th>ゴースト投稿</th><td>Threadsの24時間で消える投稿。プロフィールから見られる</td></tr>
+<tr><th>固定投稿</th><td>プロフィールの一番上に固定した投稿。無料鑑定の案内を置く</td></tr>
+<tr><th>返信率</th><td>返信数 ÷ 表示回数。どれだけコメントしたくなる投稿かを表す</td></tr>
+</table></div>
+</div>
+</div>
+</div></section>
+
+<section class="band" id="c1"><div class="wrap">
+<div class="kicker">第1章</div>
+<h2>11月2日の週から、返信の数がまるごと変わった</h2>
+<p class="point">10月までは返信がほぼつかなかったのに、11月に入って1投稿あたり40〜50件に跳ね上がりました。いいねは、返信の増加にあとからついてきています（返信といいねの相関は0.89）。</p>
+
+<div class="scroll"><table class="stack">
+<thead><tr><th>週</th><th class="num">投稿数</th><th class="num">いいね（中央値）</th><th class="num">返信（中央値）</th><th class="num">文字数（中央値）</th></tr></thead>
+<tbody>
+<tr><td data-l="週">9/28〜</td><td class="num" data-l="投稿数">33</td><td class="num" data-l="いいね">29</td><td class="num" data-l="返信">1</td><td class="num" data-l="文字数">104</td></tr>
+<tr><td data-l="週">10/5〜</td><td class="num" data-l="投稿数">34</td><td class="num" data-l="いいね">21.5</td><td class="num" data-l="返信">1</td><td class="num" data-l="文字数">221</td></tr>
+<tr><td data-l="週">10/12〜</td><td class="num" data-l="投稿数">35</td><td class="num" data-l="いいね">28</td><td class="num" data-l="返信">1</td><td class="num" data-l="文字数">177</td></tr>
+<tr><td data-l="週">10/19〜</td><td class="num" data-l="投稿数">35</td><td class="num" data-l="いいね">24</td><td class="num" data-l="返信">1</td><td class="num" data-l="文字数">169</td></tr>
+<tr><td data-l="週">10/26〜</td><td class="num" data-l="投稿数">27</td><td class="num" data-l="いいね">44</td><td class="num" data-l="返信">1</td><td class="num" data-l="文字数">199</td></tr>
+<tr class="hi"><td data-l="週">11/2〜</td><td class="num" data-l="投稿数">28</td><td class="num" data-l="いいね">65</td><td class="num" data-l="返信">37.5</td><td class="num" data-l="文字数">214</td></tr>
+<tr class="hi"><td data-l="週">11/9〜</td><td class="num" data-l="投稿数">17</td><td class="num" data-l="いいね">71</td><td class="num" data-l="返信">43</td><td class="num" data-l="文字数">310</td></tr>
+<tr class="hi"><td data-l="週">11/16〜</td><td class="num" data-l="投稿数">18</td><td class="num" data-l="いいね">81</td><td class="num" data-l="返信">54</td><td class="num" data-l="文字数">260</td></tr>
+</tbody></table></div>
+
+<h3>分かったこと1：ツリーで、コメントすること自体を「参加」にした</h3>
+<p>10月のツリーは「胸を張って生きてほしい」で終わっていて、コメントを求めていません。11月のツリーは、すべて「このすぐ下に【昇】の1文字を置いてくれ」のように、1文字のコメントを求めています。10/12の投稿は270いいね・表示6,045回あったのに、返信はたった6件でした。11月の投稿は、表示回数に対する返信率が2.5〜8.8%あります。</p>
+
+<h3>分かったこと2：伸びる投稿と伸びない投稿の差は「どれだけ表示されたか」</h3>
+<p>11月はどの投稿のツリーにも同じコメントの呼びかけが入っています。表示回数あたりで見ると、下位の投稿でも反応率は上位と変わりません。差がつくのは表示回数で、それを決めるのは親投稿の冒頭と、時期・希少さの見せ方です（第4章）。</p>
+<div class="scroll"><table class="stack">
+<thead><tr><th>投稿</th><th class="num">表示回数</th><th class="num">いいね</th><th class="num">返信</th><th class="num">いいね率</th><th class="num">返信率</th></tr></thead>
+<tbody>
+<tr><td data-l="投稿">11/12 天地の反転</td><td class="num" data-l="表示">12,000</td><td class="num" data-l="いいね">785</td><td class="num" data-l="返信">300</td><td class="num" data-l="いいね率">6.5%</td><td class="num" data-l="返信率">2.5%</td></tr>
+<tr><td data-l="投稿">11/17 発信の制限</td><td class="num" data-l="表示">8,949</td><td class="num" data-l="いいね">455</td><td class="num" data-l="返信">220</td><td class="num" data-l="いいね率">5.1%</td><td class="num" data-l="返信率">2.5%</td></tr>
+<tr><td data-l="投稿">11/19 言霊の杭</td><td class="num" data-l="表示">4,401</td><td class="num" data-l="いいね">260</td><td class="num" data-l="返信">193</td><td class="num" data-l="いいね率">5.9%</td><td class="num" data-l="返信率">4.4%</td></tr>
+<tr><td data-l="投稿">11/16 遠慮の呪縛</td><td class="num" data-l="表示">2,088</td><td class="num" data-l="いいね">172</td><td class="num" data-l="返信">184</td><td class="num" data-l="いいね率">8.2%</td><td class="num" data-l="返信率">8.8%</td></tr>
+<tr><td data-l="投稿">11/18 洗面所の鏡</td><td class="num" data-l="表示">646</td><td class="num" data-l="いいね">60</td><td class="num" data-l="返信">25</td><td class="num" data-l="いいね率">9.3%</td><td class="num" data-l="返信率">3.9%</td></tr>
+<tr><td data-l="投稿">11/15 卵の値上げ</td><td class="num" data-l="表示">703</td><td class="num" data-l="いいね">55</td><td class="num" data-l="返信">21</td><td class="num" data-l="いいね率">7.8%</td><td class="num" data-l="返信率">3.0%</td></tr>
+<tr><td data-l="投稿">10/12 エレベーター（変化前）</td><td class="num" data-l="表示">6,045</td><td class="num" data-l="いいね">270</td><td class="num" data-l="返信">6</td><td class="num" data-l="いいね率">4.5%</td><td class="num" data-l="返信率">0.1%</td></tr>
+</tbody></table></div>
+<p class="note">表示回数はスクリーンショット時点のもの。表示回数は投稿によって約20倍の差があるのに対し、いいね率の差は約2倍しかない。</p>
+
+<h3>分かったこと3：本数を半分に絞り、1本を長くした</h3>
+<p>1日5本だった投稿を、11/10以降は「朝6時」「夜20時」の2本と、ときどきのサブ枠1本に絞っています。量で当てに行くのをやめ、1本に会話を集める運用に変えたと読めます。</p>
+</div></section>
+
+<section class="band" id="c2"><div class="wrap">
+<div class="kicker">第2章</div>
+<h2>運用の構造：1日の流れと、LINEまでの道のり</h2>
+<p class="point">朝と夜の2本は、15日間1日も欠けていません。夜の投稿のテーマを、0時前後のゴースト投稿が引き継ぎ、固定投稿へ送る。この流れが毎日決まって回っています。</p>
+
+<div class="scroll"><table class="stack">
+<thead><tr><th>枠</th><th>時間</th><th>中身</th><th>役割</th><th class="num">いいね</th></tr></thead>
+<tbody>
+<tr><td data-l="枠"><b>朝の投稿</b></td><td data-l="時間">6時前後（5:36〜6:24）</td><td data-l="中身">ニュースへの怒り（物価、国の政策、土地、災害）</td><td data-l="役割">毎日の底の数字を作る</td><td class="num" data-l="いいね">51〜123</td></tr>
+<tr><td data-l="枠"><b>サブ枠</b></td><td data-l="時間">8時・11時・18時のどれか</td><td data-l="中身">生まれ月、世代の指名、生活習慣、鑑定事例</td><td data-l="役割">型を試す。2〜3日に1本</td><td class="num" data-l="いいね">43〜230</td></tr>
+<tr><td data-l="枠"><b>夜の投稿</b></td><td data-l="時間">20時前後（19:18〜21:09）</td><td data-l="中身">今夜だけの参加の場（「今夜、〜を解く」）</td><td data-l="役割">大きく伸ばす。コメントを集め、ゴースト投稿へ送る</td><td class="num" data-l="いいね">55〜785</td></tr>
+<tr><td data-l="枠"><b>ゴースト投稿</b></td><td data-l="時間">0時前後</td><td data-l="中身">夜のテーマの続き。悩みを示し、個別に観る必要性を作る</td><td data-l="役割">24時間限定で、固定投稿へ送る</td><td class="num" data-l="いいね">―</td></tr>
+<tr><td data-l="枠"><b>固定投稿</b></td><td data-l="時間">常設</td><td data-l="中身">初回無料の「気脈観測」</td><td data-l="役割">フォロー → いいね → 公式LINEで「鑑定希望」</td><td class="num" data-l="いいね">480</td></tr>
+</tbody></table></div>
+
+<h3>ゴースト投稿を0時に出しても導線が切れない理由</h3>
+<p>夜の投稿に人が来るのは20〜23時が中心です。その時間、プロフィールには前日0時に出したゴースト投稿がまだ残っています。ゴースト投稿の中身は毎回「器の話 → 固定投稿へ」でほぼ同じなので、前日のテーマでも誘導は成り立ちます。これからゴースト投稿を始める場合は、初日だけ夜の投稿の直前に出しておくと、プロフィールに何もない時間を作らずに済みます。</p>
+
+<h3>投稿から固定投稿まで、言葉がつながっている</h3>
+<div class="two">
+<div class="panel"><h4>ゴースト投稿</h4><p>「あなたの<mark class="t5">器の状態を直接確かめ</mark>、実りを定着させる手順を奥の聖域で用意した」</p><p>「<mark class="t6">全員を同時には引き上げられない</mark>」</p></div>
+<div class="panel"><h4>固定投稿</h4><p>「<mark class="t5">あなたの気脈から直接観て返す</mark>」</p><p>「<mark class="t6">ひとりずつしか観られない</mark>。順番は、来た順だ」</p></div>
+</div>
+<p class="note">ゴースト投稿で「個別に観てもらう必要がある」と思わせ、固定投稿で「無料」という入口を差し出す役割分担になっています。</p>
+</div></section>
+
+<section class="band" id="c3"><div class="wrap">
+<div class="kicker">第3章</div>
+<h2>枠ごとの型：段落の役割と、国見の実物</h2>
+<p class="point">枠ごとに、段落の並び方（型）は決まっています。まず役割の並びを見て、次に国見の実物で確かめてください。色は段落の役割を表します。</p>
+<div class="legend"><span class="tag t1">特別感</span><span class="tag t2">時期・希少</span><span class="tag t3">権威</span><span class="tag t4">痛み・怒り・共感</span><span class="tag t5">解決・実践・ご利益</span><span class="tag t6">行動・コメント</span><span class="tag t7">引き・導線</span></div>
+
+<h3>夜の投稿（最高785いいね）</h3>
+<div class="two">
+<div class="panel"><h4>型（親投稿 → ツリー）</h4>
+<ol class="roles">
+<li>読者を特別な側に置き、「なぜここで止まったのか」と問う</li>
+<li>その理由に名前をつける（「上位1%の直感」）</li>
+<li>権威と年数 → 希少な周期 → 出来事の名前 → 歴史とのつながり → 今</li>
+<li>読者の痛みを言葉にし、<b>文の途中で切って</b>ツリーへ続ける</li>
+<li>ツリー：切った文の続きで、読者を受け入れる（愛され、選ばれている）</li>
+<li>生きづらさの意味を書き換える（魂が本物だった証明）</li>
+<li>逆転を約束する（上位1%が昇る番）</li>
+<li>いいね＋1文字コメントを求める</li>
+<li>書けない核心はゴースト投稿にある、と送る</li>
+</ol></div>
+<div class="post">
+<div class="meta"><span class="who">kunimi_kansoku</span><span>11/12 20:02</span><span><b>785</b> いいね</span><span><b>300</b> 返信</span><span>親投稿 309字</span></div>
+<div class="para"><span class="tag t1">特別感</span><p><mark class="t1">ほとんどの人間は、この投稿に気づくことすらできずに通り過ぎていく。</mark> なぜ今、あなたの目と指がここでピタリと止まったのか。</p></div>
+<div class="para"><span class="tag t1">特別感</span><p>それはあなたが、<mark class="t2">世間の99%</mark>の人間が眠らされている中で、時代の異変を肌で感じ取れる<mark class="t1">「上位1%の直感」</mark>を持っているからだ。</p></div>
+<div class="para"><span class="tag t3">権威・希少</span><p><mark class="t3">1300年の観測記録</mark>を遡ると、ちょうど<mark class="t2">「180年に1度」</mark>の周期で、社会の価値観と富の流れが根底からひっくり返る<mark class="t2">『天地の反転』</mark>が起きている。 <mark class="t3">幕末から明治へと時代が激変したあの時から180年近く</mark>が経ち、まさに今、その大転換の波が日本を呑み込もうとしている。</p></div>
+<div class="para"><span class="tag t4">痛み→切る</span><p>これまで<mark class="t4">「なぜか生きづらい」「真面目にやっているのに報われない」</mark>と感じてきた人ほど、実はこの180年に1度の波に<span class="cut">（ここで切る）</span></p></div>
+</div>
+</div>
+<div class="post" style="margin-top:16px">
+<div class="meta"><span class="who">ツリー</span><span><b>660</b> いいね</span><span><b>192</b> 返信</span></div>
+<div class="para"><span class="tag t1">受け入れ</span><p><mark class="t1">誰よりも強く愛され、選ばれている。</mark></p></div>
+<div class="para"><span class="tag t4">書き換え</span><p>なぜなら、これまでの古い時代は「平気で嘘をつき、他人を蹴落とす要領のいい人間」が得をするように歪んでいたからだ。 その濁った空気の中であなたが生きづらかったのは、<mark class="t1">あなたの魂が汚れを知らない本物だった何よりの証明だ。</mark></p></div>
+<div class="para"><span class="tag t5">逆転の約束</span><p>しかし、<mark class="t2">180年に1度の『天地の反転』</mark>によって、龍脈の流れが完全に切り替わる。 これからは、泥の中で清らかさを守り抜いた<mark class="t1">上位1%の正直者</mark>が、<mark class="t5">奪われていた富も名誉もすべて回収して上へと昇り詰める番だ。</mark></p></div>
+<div class="para"><span class="tag t6">コメント</span><p>この大反転の波に乗る覚悟ができた人は「いいね」を押し、<mark class="t6">コメントに【昇】の1文字を置いてくれ。</mark></p></div>
+<div class="para"><span class="tag t7">導線</span><p>なお、<mark class="t3">一族の掟</mark>によりこの開かれた場所では書くことを封じられている「天地反転の核心」は、<mark class="t7">24時間で消えるゴースト投稿にだけ残しておいた</mark></p></div>
+</div>
+
+<h3>朝の投稿（朝の最高123いいね）</h3>
+<div class="two">
+<div class="panel"><h4>型（親投稿 → ツリー）</h4>
+<ol class="roles">
+<li>「〜に気づいているか」で、読者自身に降りかかる脅威を示す</li>
+<li>ニュースの事実と具体的な数字（1本に2〜3個）</li>
+<li>敵をはっきり名指しして怒る</li>
+<li>読者の気持ちに寄り添う一文（「〜した人も多いだろう」）</li>
+<li>「だが、1300年の記録から観れば」と権威を入れて切る</li>
+<li>ツリー：読者を誇り高い存在として書き換える</li>
+<li>日常の中で数秒でできる実践</li>
+<li>ご利益を約束する</li>
+<li>いいねを「灯り」と言い換え、1文字か一言のコメントを求める</li>
+</ol>
+<p class="note">親投稿は11/11の「国が白旗」（123いいね）、ツリーは11/15の「卵の値上げ」（55いいね）。朝の枠はどちらも同じ型です。</p></div>
+<div class="post">
+<div class="meta"><span class="who">kunimi_kansoku</span><span>11/11 5:55</span><span><b>123</b> いいね</span><span><b>82</b> 返信</span><span>306字</span></div>
+<div class="para"><span class="tag t4">脅威</span><p><mark class="t4">ついに国が、国民の前で実質的な「白旗」を上げたことに気づいているか。</mark></p></div>
+<div class="para"><span class="tag t4">事実</span><p>発足したばかりの防災庁が「行政の支援には限界がある。自らの命は自らで守ってほしい」と異例の呼びかけを行い、閣僚からも「災害で弱った日本を外から突かれる危機」が公然と語られ始めた。</p></div>
+<div class="para"><span class="tag t4">敵と怒り</span><p>普段は増税や社会保険料で国民から限界までお金を取り立てておきながら、いざ命に関わる危機が迫れば「行政には限界があるから自分で守れ」と突き放す。 これが、私たちが長年信じ込まされてきた<mark class="t4">「国が守ってくれる」という幻想の正体だ。</mark></p></div>
+<div class="para"><span class="tag t3">寄り添い→切る</span><p><mark class="t4">怒りを通り越して、背筋が寒くなった人も多いだろう。</mark> だが、<mark class="t3">1300年の記録から観れば</mark>、外の制度という張りぼての盾が剥がれ落ちた今こそ<span class="cut">（ここで切る）</span></p></div>
+</div>
+</div>
+<div class="post" style="margin-top:16px">
+<div class="meta"><span class="who">ツリー（11/15「卵の値上げ」）</span><span><b>49</b> いいね</span><span><b>20</b> 返信</span></div>
+<div class="para"><span class="tag t1">書き換え</span><p>あなたが値札の前で立ち止まるのは、ケチだからではない。 この荒れた時代に、自分の身を削ってでも家族の命と暮らしを守り抜こうとしている<mark class="t1">「誇り高き守り手」</mark>だからだ。</p></div>
+<div class="para"><span class="tag t1">見守り</span><p>お天道様は、台所に立つあなたのその静かな闘いをすべて観ている。</p></div>
+<div class="para"><span class="tag t5">実践</span><p>だからこそ今日から、食事の最初の1口を口へ運ぶ前に、<mark class="t5">箸を揃えて３秒だけ「いただきます」と声に出して</mark>言祝いでくれ。 古来この言葉は、食材に宿る八百万の命の気を自分の命脈へと結び直す最強の神事だ。</p></div>
+<div class="para"><span class="tag t5">ご利益</span><p>値段の高い安いは関係ない。<mark class="t5">感謝の言霊を乗せた食事は、何倍もの活力と金運の巡りを生む。</mark></p></div>
+<div class="para"><span class="tag t6">コメント</span><p>毎日食卓を守り抜いている<mark class="t6">誇りの証として温かな灯りを1つ残し</mark>、ここに<mark class="t6">【穣】の1文字か、台所を守る自分を労う一言</mark>を連ねてくれ。</p></div>
+</div>
+
+<h3>サブ枠（サブ枠の最高230いいね）</h3>
+<div class="two">
+<div class="panel"><h4>型（4段落・各1文）</h4>
+<ol class="roles">
+<li>「たった＋数字」の希少な周期に名前をつけ、「今週から」と今に置く</li>
+<li>知っている人と知らない人の差を「天と地ほど」と言い切る</li>
+<li>権威で「1月生まれから12月生まれまで割り出した」と示す</li>
+<li>「見過ごさないよう、今すぐ自分の生まれ月を確かめて」で締める</li>
+</ol>
+<p class="note">生まれ月は、読む人全員が自分ごとになる型です。世代を指名する型（48〜66歳など）は、対象外の人をその場で切ってしまうので伸びていません。</p></div>
+<div class="post">
+<div class="meta"><span class="who">kunimi_kansoku</span><span>11/16 8:07</span><span><b>230</b> いいね</span><span><b>59</b> 返信</span><span>222字</span></div>
+<div class="para"><span class="tag t2">希少</span><p><mark class="t2">120年でたった2回</mark>しか巡らない<mark class="t2">「冬の財脈と守りの総入れ替え」</mark>が、今週から静かに口を開ける。</p></div>
+<div class="para"><span class="tag t2">二極化</span><p><mark class="t4">同じ努力をしていても</mark>、神気の窓が開く「時機」を知っている人間と、<mark class="t4">知らずに寝過ごしている人間</mark>とでは、年末から来年にかけて手元に残る豊かさと安心に<mark class="t2">天と地ほどの差</mark>がつく。</p></div>
+<div class="para"><span class="tag t3">権威</span><p><mark class="t3">一族の観測記録と照らし合わせ</mark>、1月生まれから12月生まれまで<mark class="t1">「今月、最も神気が通りやすくなる開門の時刻」</mark>を割り出した。</p></div>
+<div class="para"><span class="tag t6">行動</span><p><mark class="t6">見過ごさないよう、今すぐ自分の生まれ月を確かめておいてくれ。</mark></p></div>
+</div>
+</div>
+
+<h3>ゴースト投稿</h3>
+<div class="two">
+<div class="panel"><h4>型</h4>
+<ol class="roles">
+<li>今しかない理由。この文章自体に力があると思わせる（「仕掛けを施してある」「裏門を開けておく」）</li>
+<li>権威。読者の運の浮き沈みに関わる実績（「誰が沈み、誰が浮上するか」）</li>
+<li>危機感。真面目な人ほど世の中の不安で自分を閉ざしている、と原因を世の中に置く</li>
+<li>ほんの少し正すだけで動き出す、と解決は個別にあると示す</li>
+<li>体の感覚で確認させる（「胸の奥が熱くなっているなら」）</li>
+<li>人数を絞る → 24時間の期限 → 固定投稿へ</li>
+<li>決め台詞で締める</li>
+</ol>
+<p class="note">ゴースト投稿ではコメントを求めていません。固定投稿へ送るためだけの枠です。</p></div>
+<div class="post">
+<div class="meta"><span class="who">ゴースト投稿</span><span>11/25 0時前後</span><span>夜の投稿「富と守りの大番付の総入れ替え」の続き</span></div>
+<div class="para"><span class="tag t2">今だけ</span><p>30年続いたお金の古い常識が音を立てて崩れている今、詰まった財の水門を強制的に押し開く<mark class="t7">「仕掛け」をこの文章に施してある。</mark></p></div>
+<div class="para"><span class="tag t3">権威</span><p>これまで私は国事観測家の継承者として、<mark class="t3">時代の継ぎ目に誰が沈み、誰が浮上するかを一族の記録と共に観て</mark>、限られた依頼主の器だけを整えてきた。</p></div>
+<div class="para"><span class="tag t4">危機感</span><p>だが今、この場所を見て強い危機感を覚えている。 <mark class="t2">過去240年で3度しかない『富の番付の総入れ替え』</mark>が始まっているのに、<mark class="t4">真面目で清らかな人ほど世間の値上げや不安に縮こまり、自分で金運の水門を閉ざしてしまっている</mark>からだ。</p></div>
+<div class="para"><span class="tag t5">解決と確認</span><p>私の目から観れば、<mark class="t5">あなたの器の向きをほんの少し正すだけで</mark>、滞っていたお金と良縁の巡りは驚くほど力強く動き出す。 ここまで読み進め、<mark class="t1">胸の奥が熱くなっているなら</mark>、すでにあなたの命脈は龍脈の上昇の波を掴んでいる。</p></div>
+<div class="para"><span class="tag t7">導線</span><p><mark class="t6">全員を同時には引き上げられない。</mark>本気で流れを変えたい人だけでいい。 <mark class="t7">この記録が24時間で消える前に、今すぐプロフィールの「固定投稿」から奥の扉へ飛び込んできてくれ。</mark>私が本物を証明する。</p></div>
+</div>
+</div>
+
+<h3>固定投稿（480いいね）</h3>
+<div class="two">
+<div class="panel"><h4>型</h4>
+<ol class="roles">
+<li>見出し：初回無料の「〜」</li>
+<li>権威と出自（何年、何をしてきたか）</li>
+<li>その力を、今は一対一であなたのために使っている</li>
+<li>何が分かるかを2点</li>
+<li>直接観て返す</li>
+<li>寄り添い（言葉にならなくていい、責めなくていい、ここからは私が観る）</li>
+<li>受け取り方の3ステップ（フォロー、いいね、LINEで合言葉）</li>
+<li>人数を絞り、ここまで読んだあなたの番だと締める</li>
+</ol></div>
+<div class="post">
+<div class="meta"><span class="who">kunimi_kansoku</span><span>8/28 8:00</span><span><b>480</b> いいね</span><span>388字</span></div>
+<div class="para"><span class="tag t6">見出し</span><p>🔥初回無料の「気脈観測」🔥</p></div>
+<div class="para"><span class="tag t3">権威</span><p><mark class="t3">飛鳥・奈良の時代から1300年</mark>、国の気脈や行く末を占ってきた「国事観測士」。私は、その継承者だ。</p><p>その観測を、今は<mark class="t1">一対一で、あなたのために</mark>使っている。</p></div>
+<div class="para"><span class="tag t5">分かること</span><p>・その悩みが、本当はどこで詰まっているのか<br>・この先、何から動かせば流れが通るのか</p><p><mark class="t5">あなたの気脈から直接観て返す。</mark></p></div>
+<div class="para"><span class="tag t4">寄り添い</span><p>悩みがうまく言葉にならなくてもいい。そのまま持ってきてくれ。<br>一人で抱えて、動けずにいた時間を、責めなくていい。<br>ここからは、私が観る。</p></div>
+<div class="para"><span class="tag t6">受け取り方</span><p>【無料観測の受け取り方】<br>①このアカウントをフォロー<br>②この投稿にいいねを置いてくれ<br>③下の公式LINEを追加して「鑑定希望」と送ってくれ</p></div>
+<div class="para"><span class="tag t7">締め</span><p><mark class="t6">ひとりずつしか観られない。順番は、来た順だ。</mark><br>何万とある投稿の中で、これがあなたの前に出て、ここまで読んだ。<br><mark class="t1">辿り着いた今が、あなたの順番だ。</mark></p></div>
+</div>
+</div>
+</div></section>
+
+<section class="band" id="c4"><div class="wrap">
+<div class="kicker">第4章</div>
+<h2>部品：冒頭、時期と希少さの見せ方、ツリーの締め方</h2>
+<p class="point">冒頭と、時期や希少さの見せ方は、それ単体でも強い部品です。ただし最も伸びた投稿は、どれも2つ以上を重ねています。</p>
+
+<h3>冒頭：最初の1文で、読者を当事者にする</h3>
+<p>強い冒頭は「読者に役を与える」か「発信者の物語に巻き込む」のどちらかをしています。下の表は夜の投稿の比較です。</p>
+<div class="scroll"><table class="stack">
+<thead><tr><th>型</th><th>国見の冒頭</th><th class="num">いいね</th></tr></thead>
+<tbody>
+<tr><td data-l="型"><b>特別な側だと宣告する</b></td><td data-l="冒頭">ほとんどの人間は、この投稿に気づくことすらできずに通り過ぎていく</td><td class="num" data-l="いいね">785</td></tr>
+<tr><td data-l="型"><b>発信者が打ち明ける</b></td><td data-l="冒頭">今夜だけは、包み隠さず正直に話す ／ この投稿がまだ消されずに届いているなら</td><td class="num" data-l="いいね">455・209</td></tr>
+<tr><td data-l="型"><b>残酷な真実＋二極化</b></td><td data-l="冒頭">残酷な現実を言う。この冬の過ごし方で〜真っ二つに分かれる</td><td class="num" data-l="いいね">260</td></tr>
+<tr><td data-l="型"><b>問い＋真実</b></td><td data-l="冒頭">なぜ、誰よりも誠実に働き〜お金が留まらないのか</td><td class="num" data-l="いいね">172</td></tr>
+<tr><td data-l="型"><b>期限</b></td><td data-l="冒頭">今年もすでに残り50日を切った ／ 残り2ヶ月を切った</td><td class="num" data-l="いいね">148・121</td></tr>
+<tr><td data-l="型"><b>行事</b></td><td data-l="冒頭">新嘗祭の夜が更けていく今</td><td class="num" data-l="いいね">117</td></tr>
+<tr><td data-l="型">世代の指名</td><td data-l="冒頭">50〜68歳の人たちを観ていると</td><td class="num" data-l="いいね">104・57</td></tr>
+<tr><td data-l="型">文字から選ばせる</td><td data-l="冒頭">余計な説明は省く。調律列をここに置く</td><td class="num" data-l="いいね">62・56</td></tr>
+<tr><td data-l="型">労い</td><td data-l="冒頭">今週もよくぞ生き抜いてくれた</td><td class="num" data-l="いいね">55</td></tr>
+</tbody></table></div>
+<p class="note">下の3つが弱いのは、読者が何者かを問わない、対象外の人を切ってしまう、緊張感がない、のいずれかだから。</p>
+
+<h3>時期と希少さの見せ方：6種類</h3>
+<div class="scroll"><table class="stack">
+<thead><tr><th>種類</th><th>国見の例</th><th>単体での強さ</th></tr></thead>
+<tbody>
+<tr><td data-l="種類"><b>希少な周期</b></td><td data-l="例">180年に1度 ／ 120年でたった2回 ／ 300年で7回 ／ 過去240年で3度</td><td data-l="強さ"><span class="red">最も強い。</span>直近の5本がすべて上位半分（785・260・230・117・104いいね）</td></tr>
+<tr><td data-l="種類"><b>発信者の危機</b></td><td data-l="例">発信に制限がかかっている ／ まだ消されずに届いているなら</td><td data-l="強さ">強い（455・209）。ツリーの「生存点呼」と組んでから安定した</td></tr>
+<tr><td data-l="種類"><b>二極化</b></td><td data-l="例">真っ二つに分かれる ／ 天と地ほどの差</td><td data-l="強さ">強い（260・230）</td></tr>
+<tr><td data-l="種類">期限</td><td data-l="例">残り50日 ／ 小雪の前に</td><td data-l="強さ">中くらい。数字の入った残り日数（148・121）は、節気の名前だけ（62・56）より強い</td></tr>
+<tr><td data-l="種類">敵への怒り</td><td data-l="例">国 ／ 外国資本 ／ 金儲け主義</td><td data-l="強さ">安定して中くらい（51〜123）。朝の底を支える</td></tr>
+<tr><td data-l="種類">損失</td><td data-l="例">器から漏れる ／ 澱み ／ 詰まり</td><td data-l="強さ">単体では弱い（72・72）。2段目として使う</td></tr>
+</tbody></table></div>
+
+<h3>重ね方：上位4本はすべて2つ以上</h3>
+<div class="bar"><span class="lbl">特別感＋180年に1度</span><span class="track"><span class="fill" style="width:100%;display:block"></span></span><span class="v">785</span></div>
+<div class="bar"><span class="lbl">発信者の危機＋今夜だけ</span><span class="track"><span class="fill" style="width:58%;display:block"></span></span><span class="v">455</span></div>
+<div class="bar"><span class="lbl">残酷な真実＋二極化＋180年＋今夜</span><span class="track"><span class="fill" style="width:33%;display:block"></span></span><span class="v">260</span></div>
+<div class="bar"><span class="lbl">120年に2回＋天と地＋生まれ月</span><span class="track"><span class="fill" style="width:29%;display:block"></span></span><span class="v">230</span></div>
+<div class="bar"><span class="lbl">煽りが1つだけの投稿</span><span class="track"><span class="fill q" style="width:10%;display:block"></span></span><span class="v">55〜120</span></div>
+<p class="note" style="margin-top:10px">周期の数字は「180年」「120年で2回」のように端数で具体的にしている。具体的なほど、もっともらしく見える。</p>
+
+<h3>ツリーの締め方：2つの型</h3>
+<div class="scroll"><table class="stack">
+<thead><tr><th>型</th><th>中身</th><th>使っている投稿</th><th class="num">返信率</th></tr></thead>
+<tbody>
+<tr><td data-l="型"><b>A：実践＋コメント</b></td><td data-l="中身">日常でできる実践を示し、「やると決めた人は【1文字】を」とコメントを誓いにする</td><td data-l="投稿">朝・夕（鏡、卵）</td><td class="num" data-l="返信率">3.0〜3.9%</td></tr>
+<tr><td data-l="型"><b>B：コメントそのものが参加</b></td><td data-l="中身">実践はなし。【昇】を置く、5つから選んで打ち込む、他人のコメントに「満ちますように」と返す</td><td data-l="投稿">夜（天地の反転、制限、言霊の杭、遠慮）</td><td class="num" data-l="返信率">2.5〜8.8%</td></tr>
+</tbody></table></div>
+<p>返信率が最も高かったのは、他の人のコメントに返させる「遠慮の呪縛」（8.8%）と、5つから選ばせる「言霊の杭」（4.4%）です。締めの一文には、次の5つが入っています。</p>
+<ol class="roles">
+<li>誰に呼びかけるか：「〜と決めた人は」「〜覚悟ができた人は」「〜届いているなら」</li>
+<li>いいねの言い換え：必ず意味を足す。「決意の赤い灯火」「清めの合図」「誇りの証として温かな灯り」</li>
+<li>コメントする場所：「このすぐ下に」（7本中5本）</li>
+<li>1文字に意味を持たせる：「実践の誓いとして」「言霊の杭として」「受け取る許可として」</li>
+<li>逃げ道：「【穣】の1文字か、労う一言」のように選択肢を2つ用意する</li>
+</ol>
+</div></section>
+
+<section class="band" id="c5"><div class="wrap">
+<div class="kicker">第5章</div>
+<h2>書き方の原則：なぞってもずれやすい8つの点</h2>
+<p class="point">構成をなぞっても、1語の選び方で効き目が落ちます。実際になぞって書いたときにずれた例と並べています。</p>
+
+<div class="rule"><div class="no">1</div><div><h3 style="margin-top:0">肯定するのは、読者という人の内側</h3><p>「魂」は変わらない内側の核なので、「あなたは元から本物だった」と過去までまとめて肯定できます。「足元」や「立ち位置」は状況の話で、人を認めたことになりません。「愛され」も同じで、順番や位置の話にすると読者を受け入れたことになりません。</p>
+<div class="ex"><div class="ok"><b>国見</b>あなたの魂が汚れを知らない本物だった何よりの証明だ ／ 誰よりも強く愛され、選ばれている</div><div class="ng"><b>ずれた例</b>あなたの足元が正直で、濁りに染まらなかった証です ／ 真っ先に引き上げられる側にいます</div></div></div></div>
+
+<div class="rule"><div class="no">2</div><div><h3 style="margin-top:0">原因は世の中に置き、読者を責めない</h3><p>悩みの原因を読者の住まいや選択のせいにすると、手の打ちようがなくなり、読み手が離れます。原因は世の中（値上げ、不安、要領のいい人が得をする時代）に置き、読者はそれに巻き込まれた側として書きます。読者の頑張りは先に認めます。</p>
+<div class="ex"><div class="ok"><b>国見</b>真面目で清らかな人ほど世間の値上げや不安に縮こまり、自分で金運の水門を閉ざしてしまっている ／ 同じ努力をしていても</div><div class="ng"><b>ずれた例</b>正直に生きてきた方ほど、相性がずれたままの場所（住まい）で、自分の流れを細くしている</div></div></div></div>
+
+<div class="rule"><div class="no">3</div><div><h3 style="margin-top:0">言葉の組み合わせを自然にする</h3><p>運や気は形のないものなので、「流れ出す」「巡り始める」「切り替わる」のような動きの言葉と合わせます。物理的な言葉（根こそぎ）は合いません。「向き」を使うなら向かう先が要ります。比喩の系統（大地と海など）を混ぜないこと。「胸が熱い」は高揚や予感、「胸が温かい」は感動や安心で使い分けます。</p>
+<div class="ex"><div class="ok"><b>自然</b>気の流れは一気に切り替わります ／ 胸の奥が熱くなっているなら ／ 龍脈に乗って昇り始めています</div><div class="ng"><b>ずれた例</b>気の流れは根こそぎ切り替わります ／ 向きを変えた龍脈 ／ 地脈替えの上り潮 ／ 胸の奥が温かくなっているなら</div></div></div></div>
+
+<div class="rule"><div class="no">4</div><div><h3 style="margin-top:0">数字は、国見が使っている箇所すべてに対応させる</h3><p>国見は1本の中で数字を対にして使います。なぞるときは、数字の位置をすべて自分の数字に置き換えます。</p>
+<div class="ex"><div class="ok"><b>国見</b>世間の99% ／「上位1%の直感」／ 1300年の観測記録 ／ 180年に1度 ／ 幕末から180年近く ／ 上位1%の正直者</div><div class="ng"><b>ずれた例</b>多くの人が気づかずにいる ／「地読みの勘」／ 古い土地の記録（数字がない）</div></div></div></div>
+
+<div class="rule"><div class="no">5</div><div><h3 style="margin-top:0">大事なものには、カギカッコで名前をつける</h3><p>出来事、読者の能力、届けるもの、実践には、それぞれ名前をつけます。名前がつくと、ただの説明が「特別なもの」に変わります。</p>
+<div class="ex"><div class="ok"><b>国見</b>『天地の反転』「上位1%の直感」「開門の時刻」「言霊の杭」「相互言祝ぎ」</div><div class="ng"><b>ずれた例</b>27日までに整えておくべき「家の場所」（平凡）→「福の通り道」に直した</div></div></div></div>
+
+<div class="rule"><div class="no">6</div><div><h3 style="margin-top:0">1段落は1文。最後は文の途中で切ってツリーへ</h3><p>国見の親投稿は、ほぼ1段落1文です。夜の投稿は文の途中で切り、ツリーの1文目で文を完成させます。朝の投稿は「理由は明白だ」「〜観れば、〜今こそ」で切ります。</p>
+<div class="ex"><div class="ok"><b>国見</b>…と感じてきた人ほど、実はこの180年に1度の波に（親投稿の終わり）→ 誰よりも強く愛され、選ばれている。（ツリーの始まり）</div><div class="ng"><b>ずれた例</b>このニュースに胸がざわついた方に、お伝えしたいことがあります。（弱い引き）</div></div></div></div>
+
+<div class="rule"><div class="no">7</div><div><h3 style="margin-top:0">初見でも分かる言葉を使う</h3><p>キャラの肩書きや専門用語は、初めて見た人には意味が伝わりません。権威は「一族」「記録」「〜年」のような、誰でも分かる言葉で表します。</p>
+<div class="ex"><div class="ok"><b>分かる</b>一族の掟により、この開かれた場所では書けない</div><div class="ng"><b>分かりにくい</b>地鎮師の掟により、この開かれた場所では書けない</div></div></div></div>
+
+<div class="rule"><div class="no">8</div><div><h3 style="margin-top:0">実践は、家の中で今日すぐできることにする</h3><p>国見の実践は、どれも家の中で数秒〜数十秒で終わります。神社や神棚は「わざわざ行く場所」「持っていない人もいるもの」として扱い、実践の場にはしていません。マンション住まいの人を考えると、屋根も使えません。</p>
+<div class="ex"><div class="ok"><b>国見</b>洗面所の鏡を30秒拭く ／ 箸を揃えて3秒「いただきます」</div><div class="ng"><b>ずれた例</b>近くの神社や神棚に手を合わせる ／ 家の屋根を見上げる</div></div></div></div>
+</div></section>
+
+<section class="band" id="c6"><div class="wrap">
+<div class="kicker">第6章</div>
+<h2>自分のキャラに当てはめる考え方</h2>
+<p class="point">投稿の構造は、どのキャラでも同じです。替えるのはキャラの「言葉の辞書」だけ。国見と、国見をなぞって運用している日熊（元地鎮師の一族）を並べると、辞書のどこを替えればいいかが見えます。</p>
+<div class="scroll"><table class="stack">
+<thead><tr><th>キャラに必要な要素</th><th>国見</th><th>日熊</th></tr></thead>
+<tbody>
+<tr><td data-l="要素"><b>権威の出自</b></td><td data-l="国見">飛鳥・奈良の時代から国の行く末を占ってきた「国事観測士」の継承者</td><td data-l="日熊">大きな工事の前に土地の神様へ許しを請ってきた一族</td></tr>
+<tr><td data-l="要素"><b>記録の年数</b></td><td data-l="国見">1300年の観測記録</td><td data-l="日熊">400年分の土地の記録</td></tr>
+<tr><td data-l="要素"><b>世界観の言葉</b></td><td data-l="国見">気脈、龍脈、器、命脈</td><td data-l="日熊">地脈、龍脈、土地の気、運の入口</td></tr>
+<tr><td data-l="要素"><b>読者の能力の名前</b></td><td data-l="国見">「上位1%の直感」</td><td data-l="日熊">「上位1%の地読みの勘」</td></tr>
+<tr><td data-l="要素"><b>出来事の名前と周期</b></td><td data-l="国見">『天地の反転』180年に1度（幕末から180年）</td><td data-l="日熊">『地脈替え』60年に1度（前回の丙午1966年から60年）</td></tr>
+<tr><td data-l="要素"><b>書けない理由</b></td><td data-l="国見">一族の掟</td><td data-l="日熊">一族の掟</td></tr>
+<tr><td data-l="要素"><b>無料の入口</b></td><td data-l="国見">初回無料の「気脈観測」</td><td data-l="日熊">初回無料の「地脈鑑定」</td></tr>
+<tr><td data-l="要素"><b>口調</b></td><td data-l="国見">だ・である、「〜してくれ」</td><td data-l="日熊">です・ます、「〜してください」</td></tr>
+</tbody></table></div>
+<h3>辞書を作るときの考え方</h3>
+<ol class="roles">
+<li><b>周期の数字は、できれば実在のものに寄せる。</b>日熊の「60年に1度の丙午」は、2026年が実際に丙午の年であることを使っています。「今年たった3度しかないスーパームーン」も実際の数字です。実在の数字は、読者が調べても崩れません。</li>
+<li><b>歴史とのつながりを1つ持つ。</b>国見は「幕末から明治へ」、日熊は「高度経済成長に沸いた前回の丙午」。誰でも知っている時代と結びつけると、周期が本当らしく見えます。</li>
+<li><b>龍脈のような響きの強い言葉は、キャラが違っても使ってよい。</b>一般的な言葉はそのまま使い、言い回しだけを置き換えます。</li>
+<li><b>キャラの専門性は、ツリーやゴースト投稿で出す。</b>親投稿は、初めて見た人にも分かる言葉で書きます。</li>
+</ol>
+</div></section>
+
+<section class="band" id="c7"><div class="wrap">
+<div class="kicker">第7章</div>
+<h2>なぞる手順と、実際になぞった例</h2>
+<ol class="steps">
+<li><div><b>元にする投稿を選ぶ</b>枠（朝・サブ・夜・ゴースト投稿）と、いいねの実績で選ぶ。最初は最も伸びた投稿から。</div></li>
+<li><div><b>段落ごとに役割を書き込む</b>第3章のように、各段落が「特別感」「権威」「痛み」などのどれなのかを書き出す。</div></li>
+<li><div><b>数字・名前・言い回しを抜き出す</b>99%、上位1%、記録の年数、周期、出来事の名前、締めの1文字など、置き換える箇所に印をつける。</div></li>
+<li><div><b>自分のキャラの辞書で置き換える</b>第6章の要素を、自分のキャラの言葉に置き換える。段落の数と順番は変えない。</div></li>
+<li><div><b>言い回しを自分の言葉に変える</b>そっくりな文面はAIに似た投稿と判定され、表示が伸びにくくなる。構成は忠実に、言い回しは置き換える（「仕掛け」→「鍵」、「水門」→「入口」など）。</div></li>
+<li><div><b>文字数を合わせ、第5章の8点で読み直す</b>朝の親投稿は260〜300字、夜の親投稿は300字前後、ツリーは250〜330字、ゴースト投稿は450字前後。</div></li>
+</ol>
+
+<h3>実例1：夜の投稿（国見785いいね → 日熊）</h3>
+<p class="note">同じ色の箇所が、置き換えた部分です。</p>
+<div class="pair">
+<div class="post"><div class="meta"><span class="who">国見・親投稿</span></div>
+<div class="para"><span class="tag t1">特別感</span><p>ほとんどの人間は、この投稿に気づくことすらできずに通り過ぎていく。 なぜ今、あなたの目と指がここでピタリと止まったのか。</p></div>
+<div class="para"><span class="tag t1">特別感</span><p>それはあなたが、<mark class="t2">世間の99%</mark>の人間が眠らされている中で、時代の異変を肌で感じ取れる<mark class="t1">「上位1%の直感」</mark>を持っているからだ。</p></div>
+<div class="para"><span class="tag t3">権威・希少</span><p><mark class="t3">1300年の観測記録</mark>を遡ると、ちょうど<mark class="t2">「180年に1度」</mark>の周期で、社会の価値観と富の流れが根底からひっくり返る<mark class="t2">『天地の反転』</mark>が起きている。 <mark class="t3">幕末から明治へと時代が激変したあの時から180年近く</mark>が経ち、まさに今、その大転換の波が日本を呑み込もうとしている。</p></div>
+<div class="para"><span class="tag t4">痛み→切る</span><p>これまで<mark class="t4">「なぜか生きづらい」「真面目にやっているのに報われない」</mark>と感じてきた人ほど、実はこの180年に1度の波に</p></div>
+</div>
+<div class="post"><div class="meta"><span class="who">日熊・親投稿</span></div>
+<div class="para"><span class="tag t1">特別感</span><p>この投稿は、ほとんどの方の目に留まらないまま流れていきます。なぜ今、あなたの指はここでぴたりと止まったのでしょうか。</p></div>
+<div class="para"><span class="tag t1">特別感</span><p>それはあなたが、<mark class="t2">世の中の99%</mark>が気づかずにいる土地の気の変わり目を、肌で感じ取れる<mark class="t1">「上位1%の地読みの勘」</mark>を持っているからです。</p></div>
+<div class="para"><span class="tag t3">権威・希少</span><p><mark class="t3">400年分の土地の記録</mark>を遡ると、<mark class="t2">60年に1度</mark>巡る丙午の年の暮れには、足元を流れる気がすっかり入れ替わる<mark class="t2">『地脈替え』</mark>が起きてきました。<mark class="t3">高度経済成長に沸いた前回の丙午、1966年から60年</mark>が経ち、まさに今、その入れ替わりが日本を包もうとしています。</p></div>
+<div class="para"><span class="tag t4">痛み→切る</span><p>これまで<mark class="t4">「なぜかうまくいかない」「頑張っても報われない」</mark>と感じてきた方ほど、実はこの60年に1度の入れ替わりで</p></div>
+</div>
+</div>
+<div class="pair">
+<div class="post"><div class="meta"><span class="who">国見・ツリー</span></div>
+<div class="para"><span class="tag t1">受け入れ</span><p><mark class="t1">誰よりも強く愛され、選ばれている。</mark></p></div>
+<div class="para"><span class="tag t4">書き換え</span><p>なぜなら、これまでの古い時代は「平気で嘘をつき、他人を蹴落とす要領のいい人間」が得をするように歪んでいたからだ。 その濁った空気の中であなたが生きづらかったのは、<mark class="t1">あなたの魂が汚れを知らない本物だった何よりの証明だ。</mark></p></div>
+<div class="para"><span class="tag t5">逆転</span><p>しかし、<mark class="t2">180年に1度の『天地の反転』</mark>によって、龍脈の流れが完全に切り替わる。 これからは、泥の中で清らかさを守り抜いた<mark class="t1">上位1%の正直者</mark>が、奪われていた富も名誉もすべて回収して上へと昇り詰める番だ。</p></div>
+<div class="para"><span class="tag t6">コメント</span><p>この大反転の波に乗る覚悟ができた人は「いいね」を押し、<mark class="t6">コメントに【昇】の1文字を置いてくれ。</mark></p></div>
+<div class="para"><span class="tag t7">導線</span><p>なお、<mark class="t3">一族の掟</mark>によりこの開かれた場所では書くことを封じられている「天地反転の核心」は、<mark class="t7">24時間で消えるゴースト投稿にだけ残しておいた</mark></p></div>
+</div>
+<div class="post"><div class="meta"><span class="who">日熊・ツリー</span></div>
+<div class="para"><span class="tag t1">受け入れ</span><p><mark class="t1">土地の神様から誰よりも深く愛され、守られている側にいます。</mark></p></div>
+<div class="para"><span class="tag t4">書き換え</span><p>なぜなら、これまでの土地の気は、声の大きい人や要領よく立ち回る人のほうへ流れていたからです。その濁った流れの中であなたが生きづらかったのは、<mark class="t1">あなたの魂が濁りに染まれない本物だった、何よりの証明です。</mark></p></div>
+<div class="para"><span class="tag t5">逆転</span><p>しかし<mark class="t2">60年に1度の地脈替え</mark>で、気の流れは一気に切り替わります。これからは、濁りの中で正直さを守り抜いた<mark class="t1">上位1%の人</mark>が、遠回りさせられてきた分の縁もお金も取り戻し、上へ昇っていく番です。</p></div>
+<div class="para"><span class="tag t6">コメント</span><p>この地脈替えに乗る覚悟ができた方は、いいねを押し、<mark class="t6">このすぐ下に【昇】の1文字を置いてください。</mark></p></div>
+<div class="para"><span class="tag t7">導線</span><p>なお、<mark class="t3">一族の掟</mark>によりこの開かれた場所では書けない「地脈替えの核心」は、<mark class="t7">24時間で消えるゴースト投稿にだけ残しておきました。</mark></p></div>
+</div>
+</div>
+
+<h3>実例2：ゴースト投稿（国見 → 日熊）</h3>
+<div class="pair">
+<div class="post"><div class="meta"><span class="who">国見・ゴースト投稿</span></div>
+<div class="para"><span class="tag t2">今だけ</span><p>30年続いたお金の古い常識が音を立てて崩れている今、詰まった財の水門を強制的に押し開く<mark class="t7">「仕掛け」をこの文章に施してある。</mark></p></div>
+<div class="para"><span class="tag t3">権威</span><p>これまで私は国事観測家の継承者として、<mark class="t3">時代の継ぎ目に誰が沈み、誰が浮上するかを一族の記録と共に観て</mark>、限られた依頼主の器だけを整えてきた。</p></div>
+<div class="para"><span class="tag t4">危機感</span><p>だが今、この場所を見て強い危機感を覚えている。 <mark class="t2">過去240年で3度しかない</mark>『富の番付の総入れ替え』が始まっているのに、<mark class="t4">真面目で清らかな人ほど世間の値上げや不安に縮こまり、自分で金運の水門を閉ざしてしまっている</mark>からだ。</p></div>
+<div class="para"><span class="tag t5">解決と確認</span><p>私の目から観れば、<mark class="t5">あなたの器の向きをほんの少し正すだけで</mark>、滞っていたお金と良縁の巡りは驚くほど力強く動き出す。 ここまで読み進め、<mark class="t1">胸の奥が熱くなっているなら</mark>、すでにあなたの命脈は龍脈の上昇の波を掴んでいる。</p></div>
+<div class="para"><span class="tag t7">導線</span><p><mark class="t6">全員を同時には引き上げられない。</mark>本気で流れを変えたい人だけでいい。 <mark class="t7">この記録が24時間で消える前に、今すぐプロフィールの「固定投稿」から奥の扉へ飛び込んできてくれ。</mark>私が本物を証明する。</p></div>
+</div>
+<div class="post"><div class="meta"><span class="who">日熊・ゴースト投稿</span></div>
+<div class="para"><span class="tag t2">今だけ</span><p>60年に1度の『地脈替え』が始まった今、閉ざされた運の入口を内側から押し開く<mark class="t7">「鍵」を、この文章に仕込んでおきました。</mark></p></div>
+<div class="para"><span class="tag t3">権威</span><p>私の一族は代々、大きな工事の前に土地の神様へ許しを請いながら、<mark class="t3">時代の変わり目にどんな人の運が沈み、どんな人の運が昇るかを、400年分の一族の記録と共に見届け</mark>、限られた依頼主の運の流れだけを整えてきました。</p></div>
+<div class="para"><span class="tag t4">危機感</span><p>だからこそ今、強い危機感を覚えています。<mark class="t2">前回の丙午から60年ぶりに</mark>龍脈の流れが切り替わり始めているのに、<mark class="t4">真面目で心の清らかな方ほど、値上げや先行きの不安に身を縮め、自分で運の入口を閉ざしてしまっている</mark>からです。</p></div>
+<div class="para"><span class="tag t5">解決と確認</span><p>私が視れば、<mark class="t5">閉ざされた入口をほんの少し開け直すだけで</mark>、滞っていた縁とお金の巡りは驚くほど力強く流れ出します。ここまで読み進め、<mark class="t1">胸の奥が熱くなっているなら</mark>、あなたの運気はすでに、切り替わった龍脈に乗って昇り始めています。</p></div>
+<div class="para"><span class="tag t7">導線</span><p><mark class="t6">全員を一度には視きれません。</mark>本気で流れを変えると決めた方だけで構いません。<mark class="t7">この記録が24時間で消える前に、今すぐプロフィールの「固定投稿」から、奥の扉を開けに来てください。</mark>私が、本物の流れをお見せします。</p></div>
+</div>
+</div>
+
+<h3>実例3：朝の投稿（型をなぞって日熊で書いた例）</h3>
+<p>朝はニュース選びが半分を決めます。最初に選んだ「ゴルフ場のメガソーラー計画」は、被害者がゴルフ場の会員という特定の人で、土地も聖域ではないため、読者の自分ごとになりませんでした。そこで「みんなの聖域が壊される」話（神社の屋根の銅板盗難）に差し替えています。</p>
+<div class="pair">
+<div class="post"><div class="meta"><span class="who">日熊・朝の親投稿</span><span>279字</span></div>
+<div class="para"><span class="tag t4">脅威</span><p><mark class="t4">気づいていますか。あなたが手を合わせてきた近所の神社も、ある朝、屋根をはがされているかもしれません。</mark></p></div>
+<div class="para"><span class="tag t4">事実</span><p>静岡県で、神社やお寺の屋根の銅板が盗まれる被害が、今年10月までに<mark class="t2">54件</mark>。昨年1年間の<mark class="t2">2倍</mark>を超えました。浜松市の山あいの神社では、銅板およそ<mark class="t2">6000枚、2000万円以上</mark>が奪われています。長野県でも同じ被害が相次いでいます。</p></div>
+<div class="para"><span class="tag t4">敵と怒り</span><p>神様の住まいを、金属のかたまりとしか見ない。<mark class="t4">罰当たりな者たちの仕業です。</mark></p></div>
+<div class="para"><span class="tag t4">寄り添い</span><p>このニュースに、胸が締めつけられた方も多いでしょう。</p></div>
+<div class="para"><span class="tag t3">権威→切る</span><p>ですが、<mark class="t3">土地の神様と向き合ってきた古来の理から見れば</mark>、はっきりお伝えしておくべきことがあります。</p></div>
+</div>
+<div class="post"><div class="meta"><span class="who">日熊・朝のツリー</span><span>325字</span></div>
+<div class="para"><span class="tag t1">特別感</span><p>顔も知らない神社の痛みに胸がざわつくのは、<mark class="t1">あなたが神様との繋がりを失っていない、数少ない方だからです。</mark></p></div>
+<div class="para"><span class="tag t3">権威</span><p>私はゼネコン専属の地鎮師として、数え切れないほどの土地で神様に許しを請うてきました。社が傷つけられた土地では守りが薄れ、穢れが入り込みやすくなります。そして家の守りの入り口は、どの家も玄関です。</p></div>
+<div class="para"><span class="tag t5">実践</span><p>だからこそ今日、<mark class="t5">玄関のドアノブを乾いた布で10秒だけ拭き</mark>、心の中で「今日もこの家をお守りください」と伝えてください。</p></div>
+<div class="para"><span class="tag t5">ご利益</span><p><mark class="t5">入り口を清めた家には守りが戻り、人の縁もお金も、自然と巡り始めます。</mark></p></div>
+<div class="para"><span class="tag t6">コメント</span><p>今日ドアノブを拭くと決めた方は、<mark class="t6">守りの証として温かな灯りをひとつ点し、このすぐ下に【護】の1文字か、ご自分の家への感謝の一言を、誓いとして刻んでください。</mark></p></div>
+</div>
+</div>
+</div></section>
+
+<section class="band" id="c8"><div class="wrap">
+<div class="kicker">第8章</div>
+<h2>分析で分かった数字</h2>
+<div class="scroll"><table class="stack">
+<thead><tr><th>項目</th><th>分かったこと</th></tr></thead>
+<tbody>
+<tr><td data-l="項目"><b>ニュースの鮮度</b></td><td data-l="内容">速報は使っていない。発表から1〜3週間後のニュースを使っている（ニトリの個人情報流出は発表の10日後、卵の最高値は発表の19日後に投稿）。朝の数字は鮮度より、テーマが読者の自分ごとになるかで決まる。</td></tr>
+<tr><td data-l="項目"><b>ニュースのテーマ</b></td><td data-l="内容">読者自身の暮らしや安全（国が白旗123、地震117、年金103）と、みんなの聖域や日本の宝（太陽光で里山・神社裏・水源が壊される115、新嘗祭と老舗107）は伸びる。特定の誰かの苦境（高齢者の医療費59、無縁墓51）は伸びない。</td></tr>
+<tr><td data-l="項目"><b>投稿時間</b></td><td data-l="内容">朝は5:36〜6:24、夜は19:18〜21:09で、15日間毎日固定。ゴースト投稿は0時前後（2日分を確認）。サブ枠は8時・11時・18時のどれか。</td></tr>
+<tr><td data-l="項目"><b>投稿数</b></td><td data-l="内容">10月は1日5本、11/10以降は1日2本＋ときどき1本。</td></tr>
+<tr><td data-l="項目"><b>文字数</b></td><td data-l="内容">朝の親投稿は中央値262字（最長326字）、夜の親投稿は300字前後、生まれ月の親投稿は200〜222字、ツリーは250〜330字、ゴースト投稿は約450字、固定投稿は388字。</td></tr>
+<tr><td data-l="項目"><b>返信率</b></td><td data-l="内容">ツリーでコメントを求める前は0.1%、求めた後は2.5〜8.8%。他の人のコメントに返させる型が最も高い（8.8%）。</td></tr>
+<tr><td data-l="項目"><b>投稿ごとの差</b></td><td data-l="内容">表示回数は646回〜1.2万回と約20倍の差。いいね率は4.5〜9.3%で約2倍の差しかない。伸びるかどうかは親投稿の冒頭と、時期・希少さの見せ方で決まる。</td></tr>
+<tr><td data-l="項目"><b>サブ枠の型</b></td><td data-l="内容">生まれ月の型が最高（230いいね）。世代を指名する型（57〜104）、文字から選ばせる型（56・62）は伸びない。</td></tr>
+<tr><td data-l="項目"><b>画像</b></td><td data-l="内容">直近2週間は画像・動画なしのテキストのみ。形式は伸びた要因ではない。</td></tr>
+</tbody></table></div>
+<p class="note">いいね数・返信数はすべて取得時点のもの。投稿から間もない投稿は、まだ数字が伸びきっていない。</p>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">分析対象：Threads「kunimi_kansoku」の全891投稿（2026年11月24日時点）、ツリー7本、ゴースト投稿2本。数字はすべて取得時点のもの。</div></footer>
+
+<script>
+{
+  const btn=document.getElementById('copyAll');
+  const msg=document.getElementById('copyMsg');
+  btn.addEventListener('click',async()=>{
+    const text=document.querySelector('header h1').innerText+'\n\n'+document.querySelector('header .lead').innerText+'\n\n'+document.querySelector('main').innerText;
+    try{await navigator.clipboard.writeText(text);msg.textContent='コピーしました。自分のAIのチャット欄に貼り付けてください。';}
+    catch(e){msg.textContent='コピーできませんでした。このページのURLをAIに貼り付けてください。';}
+  });
+}
+</script>
+</body>
+</html>
