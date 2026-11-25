@@ -121,6 +121,20 @@ mark.t1{background:linear-gradient(transparent 45%,var(--m1) 45%)}mark.t2{backgr
 footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 @media(max-width:600px){table{font-size:13px}th,td{padding:7px 5px}.stack thead{display:none}.stack tr{display:grid;padding-block:8px;border-bottom:1px solid var(--line)}.stack td{border:0;padding:2px 0}.stack td::before{content:attr(data-l);display:block;font-size:12px;color:var(--sub);font-weight:700}.stack td.num{text-align:left}}
 
+.tcap{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+@media(max-width:600px){
+.stack thead{display:none}
+.stack,.stack tbody{display:block}
+.stack tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 10px;padding:12px 14px;margin-bottom:10px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.stack tr.hi{border-color:var(--red)}
+.stack tr.hi td{background:none}
+.stack td{display:block;border:0;padding:0;font-size:14px;line-height:1.6;grid-column:1/-1}
+.stack td.num{grid-column:auto;text-align:left;white-space:normal}
+.stack td:first-child{font-weight:700;font-size:15px}
+.stack td::before{content:attr(data-l);display:block;font-size:11px;color:var(--sub);font-weight:700;line-height:1.4}
+.stack td:first-child::before{display:none}
+}
+
 .hero h1{font-size:clamp(32px,5.4vw,54px)}
 .hero .sub0{font-size:14px;font-weight:700;color:var(--sub);margin-bottom:6px}
 .chartwrap{margin:22px 0 8px;max-width:820px}
@@ -223,14 +237,15 @@ h2{font-size:24px}
 <li>コメントを求める前は、表示6千回でも返信6件（返信率 <b>0.1%</b>）</li>
 <li>11月は全投稿が同じツリーの型。それでも表示回数は<b>最大20倍</b>の差 → 差を作るのは<b>親投稿の冒頭と希少さの見せ方</b></li>
 </ul>
-<div class="scroll" style="margin-top:14px"><table class="stack">
+<p class="tcap">11月の主な投稿：冒頭の型と表示回数の比較</p>
+<div class="scroll"><table class="stack">
 <thead><tr><th>投稿</th><th>冒頭の型</th><th class="num">表示回数</th><th class="num">いいね</th><th class="num">返信率</th></tr></thead>
 <tbody>
-<tr><td data-l="投稿">11/12 天地の反転</td><td data-l="冒頭">特別感＋180年に1度</td><td class="num" data-l="表示">12,000</td><td class="num" data-l="いいね">785</td><td class="num" data-l="返信率">2.5%</td></tr>
-<tr><td data-l="投稿">11/17 発信の制限</td><td data-l="冒頭">発信者の打ち明け</td><td class="num" data-l="表示">8,949</td><td class="num" data-l="いいね">455</td><td class="num" data-l="返信率">2.5%</td></tr>
-<tr><td data-l="投稿">11/19 言霊の杭</td><td data-l="冒頭">残酷な真実＋二極化</td><td class="num" data-l="表示">4,401</td><td class="num" data-l="いいね">260</td><td class="num" data-l="返信率">4.4%</td></tr>
-<tr><td data-l="投稿">11/18 洗面所の鏡</td><td data-l="冒頭">生活の知恵</td><td class="num" data-l="表示">646</td><td class="num" data-l="いいね">60</td><td class="num" data-l="返信率">3.9%</td></tr>
-<tr class="hi"><td data-l="投稿">10/12 エレベーター（変更前）</td><td data-l="冒頭">コメントの呼びかけなし</td><td class="num" data-l="表示">6,045</td><td class="num" data-l="いいね">270</td><td class="num" data-l="返信率">0.1%</td></tr>
+<tr><td data-l="投稿">11/12 天地の反転</td><td data-l="冒頭">特別感＋180年に1度</td><td class="num" data-l="表示回数">12,000</td><td class="num" data-l="いいね">785</td><td class="num" data-l="返信率">2.5%</td></tr>
+<tr><td data-l="投稿">11/17 発信の制限</td><td data-l="冒頭">発信者の打ち明け</td><td class="num" data-l="表示回数">8,949</td><td class="num" data-l="いいね">455</td><td class="num" data-l="返信率">2.5%</td></tr>
+<tr><td data-l="投稿">11/19 言霊の杭</td><td data-l="冒頭">残酷な真実＋二極化</td><td class="num" data-l="表示回数">4,401</td><td class="num" data-l="いいね">260</td><td class="num" data-l="返信率">4.4%</td></tr>
+<tr><td data-l="投稿">11/18 洗面所の鏡</td><td data-l="冒頭">生活の知恵</td><td class="num" data-l="表示回数">646</td><td class="num" data-l="いいね">60</td><td class="num" data-l="返信率">3.9%</td></tr>
+<tr class="hi"><td data-l="投稿">10/12 エレベーター（変更前）</td><td data-l="冒頭">コメントの呼びかけなし</td><td class="num" data-l="表示回数">6,045</td><td class="num" data-l="いいね">270</td><td class="num" data-l="返信率">0.1%</td></tr>
 </tbody></table></div>
 <p class="note">「会話のある投稿が広がる」はデータからの見立て。表示回数はスクリーンショット時点。</p>
 <a class="back" href="#map">↑ 全体像に戻る</a>
@@ -247,7 +262,8 @@ h2{font-size:24px}
 <div class="st"><span class="dot">常設</span><b>固定投稿</b><span>初回無料の鑑定</span></div>
 <div class="st"><span class="dot">LINE</span><b>公式LINE</b><span>「鑑定希望」</span></div>
 </div>
-<div class="scroll" style="margin-top:18px"><table class="stack">
+<p class="tcap" style="margin-top:18px">枠ごとの投稿時間と役割</p>
+<div class="scroll"><table class="stack">
 <thead><tr><th>枠</th><th>時間</th><th>役割</th><th class="num">いいね</th></tr></thead>
 <tbody>
 <tr><td data-l="枠"><b>朝</b></td><td data-l="時間">5:36〜6:24（毎日）</td><td data-l="役割">底の数字を作る</td><td class="num" data-l="いいね">51〜123</td></tr>
@@ -366,6 +382,7 @@ h2{font-size:24px}
 <div class="chap"><span class="c">第6章</span></div>
 <h2>キャラへの当てはめ：替えるのは「言葉の辞書」だけ</h2>
 
+<p class="tcap">国見と日熊の「言葉の辞書」の比較</p>
 <div class="scroll"><table class="stack">
 <thead><tr><th>要素</th><th>国見</th><th>日熊（なぞった例）</th></tr></thead>
 <tbody>
