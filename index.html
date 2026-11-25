@@ -149,6 +149,23 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 .rule2{display:grid;grid-template-columns:2.4em minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid var(--line)}
 .rule2 .no{font-family:"Shippori Mincho B1",serif;font-size:30px;font-weight:800;color:var(--red);line-height:1}
 .rule2 h3{margin:0 0 6px;font-size:19px}
+@media(max-width:600px){
+.stack thead{display:none}
+.stack tr{display:block;padding:10px 0;border-bottom:1px solid var(--line)}
+.stack td{display:inline-block;border:0;padding:0 14px 2px 0;font-size:14px;text-align:left;vertical-align:baseline}
+.stack td.num{text-align:left}
+.stack td:first-child{display:block;font-size:15px;font-weight:700;padding-bottom:4px}
+.stack td::before{content:attr(data-l) "：";display:inline;font-size:12px;color:var(--sub);font-weight:700}
+.stack td:first-child::before{content:none}
+nav.toc a{font-size:13px;padding:6px 10px}
+nav.toc .scroll{padding:8px 12px}
+.wks{font-size:10px;gap:2px}
+.chart{gap:4px;height:190px}
+.col .v{font-size:13px}
+.flag{font-size:11px;padding:2px 6px}
+.bl.big li{font-size:16px}
+h2{font-size:24px}
+}
 </style>
 </head>
 <body>
