@@ -12,12 +12,11 @@
 /* VOICE  教本。落ち着いて、細部まで正確に
    IDEA   添削された原稿。実際の投稿に蛍光ペンと赤字で役割を書き込んだノート
    PICTURE 1日の投稿の流れを駅のように並べた路線図
-   COLOUR 白地、墨の黒、朱色の赤字。役割ごとに7色の蛍光ペン
+   COLOUR 白地に黒文字。章の区切りと目次は青。役割ごとに7色の蛍光ペン
    TYPE   見出しは明朝（しっぽり明朝）、本文はNoto Sans JP
    LAYOUT 上に結論と数字と路線図。以下、章ごとに「型（抽象）→実物（具体）」 */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121212);--ink:light-dark(#141414,#ececec);--sub:light-dark(#5b5b5b,#a9a9a9);--line:light-dark(#e3e3e3,#2e2e2e);--panel:light-dark(#f6f6f4,#1b1b1b);--red:light-dark(#c9301b,#ff6b55);--band:#141414;
---m1:light-dark(#ffe36e,#6b5a00);--m2:light-dark(#ffc2d3,#6e2438);--m3:light-dark(#bcdcff,#1f4470);--m4:light-dark(#c4ecbc,#25552a);--m5:light-dark(#b2ece4,#17544d);--m6:light-dark(#ffd09e,#6b3d0e);--m7:light-dark(#ddd0ff,#45307a)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root{color-scheme:light;--bg:#ffffff;--ink:#1a1a1a;--sub:#555;--line:#dedede;--panel:#f4f5f7;--alt:#f8f9fa;--red:#c9301b;--acc:#1f5fbf;
+--m1:#ffe36e;--m2:#ffc2d3;--m3:#bcdcff;--m4:#c4ecbc;--m5:#b2ece4;--m6:#ffd09e;--m7:#ddd0ff}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:64px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans JP","Hiragino Sans",sans-serif;overflow-x:clip}
@@ -28,31 +27,45 @@ h3{font-size:21px;margin:36px 0 10px}
 p{margin:0 0 14px}
 .wrap{max-width:1180px;margin:0 auto}
 .band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
-.top{background:var(--band);color:#f4f4f4}
-.top .lead{font-size:18px;max-width:46em;color:#dcdcdc}
-.top .lead b{color:#fff;background:linear-gradient(transparent 62%,#c9301b 62%)}
+.top{background:#fff;color:var(--ink);border-bottom:1px solid var(--line)}
+.top .lead{font-size:18px;max-width:46em;color:var(--ink)}
+.top .lead b{color:var(--ink)}
 .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:12px;margin:26px 0 30px}
-.fig1{border-top:2px solid #444;padding-top:10px}
-.fig1 .n{font-family:"Shippori Mincho B1",serif;font-size:clamp(28px,4vw,40px);font-weight:800;white-space:nowrap}
-.fig1 .n small{font-size:16px;color:#bbb;font-weight:700;margin-inline:4px}
-.fig1 .l{font-size:14px;color:#bdbdbd}
-.route{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:8px;position:relative}
-.route::before{content:"";position:absolute;left:4%;right:4%;top:23px;height:4px;background:#c9301b}
-.st{position:relative;padding:0 6px;text-align:center}
-.st .dot{width:50px;height:50px;border-radius:50%;margin:0 auto 10px;background:#141414;border:4px solid #c9301b;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;white-space:nowrap}
-.st b{display:block;font-size:15px;color:#fff}
-.st span{display:block;font-size:13px;color:#bdbdbd;line-height:1.5}
-@media(max-width:760px){.route{grid-template-columns:1fr;gap:14px}.route::before{left:23px;right:auto;top:10px;bottom:10px;width:4px;height:auto}.st{display:grid;grid-template-columns:50px 1fr;gap:12px;text-align:left;align-items:center}.st .dot{margin:0}}
-nav.toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-nav.toc .scroll{display:flex;gap:4px;overflow-x:auto;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto}
-nav.toc a{flex:none;color:var(--ink);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:6px}
-nav.toc a:hover,nav.toc a:focus-visible{background:var(--panel);outline:none}
+.fig1{background:var(--panel);border-radius:10px;padding:14px 16px}
+.fig1 .n{font-family:"Shippori Mincho B1",serif;font-size:clamp(28px,4vw,38px);font-weight:800;white-space:nowrap;color:var(--ink)}
+.fig1 .n small{font-size:16px;color:var(--sub);font-weight:700;margin-inline:4px}
+.fig1 .l{font-size:14px;color:var(--sub)}
+.route-h{font-weight:700;margin:0 0 10px}
+.route{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.st{background:#fff;border:2px solid #cfd6df;border-radius:10px;padding:12px 12px;position:relative}
+.st:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-weight:700;color:#7a8594;background:#fff;line-height:1}
+.st .dot{display:inline-block;font-weight:700;font-size:13px;color:#fff;background:#2c3440;border-radius:4px;padding:1px 8px;margin-bottom:6px;white-space:nowrap}
+.st b{display:block;font-size:15px}
+.st span{display:block;font-size:13px;color:var(--sub);line-height:1.5}
+@media(max-width:860px){.route{grid-template-columns:repeat(2,minmax(0,1fr))}.st::after{display:none}}
+@media(max-width:480px){.route{grid-template-columns:1fr}}
+nav.toc{position:sticky;top:0;z-index:5;background:#fff;border-bottom:2px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.05)}
+nav.toc .scroll{display:flex;gap:6px;overflow-x:auto;padding:10px max(5vw,16px);max-width:1240px;margin:0 auto;align-items:center}
+nav.toc .lab{flex:none;font-size:13px;font-weight:700;color:var(--sub);margin-right:4px}
+nav.toc a{flex:none;color:var(--ink);text-decoration:none;font-size:14px;padding:7px 12px;border-radius:999px;border:1px solid #c9ced6;background:#fff;white-space:nowrap}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--acc);color:var(--acc);outline:none}
+nav.toc a.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(15em,1fr));gap:12px}
+.ov{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.ov:hover,.ov:focus-visible{border-color:var(--acc);outline:none}
+.ov .c{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--acc);border-radius:4px;padding:1px 8px}
+.ov b{display:block;font-size:17px;margin:6px 0 2px}
+.ov span{display:block;font-size:14px;color:var(--sub);line-height:1.6}
+.groups{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 16px;font-size:14px;color:var(--sub)}
+.chap{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.chap .c{font-size:14px;font-weight:700;color:#fff;background:var(--acc);border-radius:6px;padding:4px 12px;white-space:nowrap}
+.back{display:inline-block;margin-top:24px;font-size:14px;color:var(--acc)}
+section.band:nth-of-type(even){background:var(--alt)}
 .copy{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
-.copy button{font:inherit;font-size:15px;font-weight:700;min-height:44px;padding:0 18px;border-radius:8px;border:1px solid #666;background:#fff;color:#141414;cursor:pointer}
+.copy button{font:inherit;font-size:15px;font-weight:700;min-height:44px;padding:0 18px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
 .copy button:focus-visible{outline:3px solid #c9301b;outline-offset:2px}
-.copy span{font-size:14px;color:#bdbdbd}
-section.band{border-bottom:1px solid var(--line)}
-.kicker{color:var(--red);font-weight:700;font-size:15px;margin-bottom:4px}
+.copy span{font-size:14px;color:var(--sub)}
+section.band{border-bottom:1px solid var(--line);border-top:4px solid var(--acc)}
 .point{font-size:18px;max-width:44em}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
 @media(max-width:860px){.two{grid-template-columns:1fr}}
@@ -123,6 +136,7 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <div class="fig1"><div class="n">169<small>→</small>260</div><div class="l">親投稿の文字数（中央値）<br>1本を長く、濃くした</div></div>
 </div>
 
+<p class="route-h">国見の1日の流れ（フォロワーをLINEまで運ぶ順番）</p>
 <div class="route" aria-label="国見の1日の投稿の流れ">
 <div class="st"><div class="dot">6:00</div><div><b>朝の投稿</b><span>ニュースへの怒り。底の数字を作る</span></div></div>
 <div class="st"><div class="dot">不定期</div><div><b>サブ枠</b><span>生まれ月などの型を試す</span></div></div>
@@ -140,13 +154,30 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 </header>
 
 <nav class="toc" aria-label="目次"><div class="scroll">
-<a href="#c0">はじめに</a><a href="#c1">1. 何が起きたか</a><a href="#c2">2. 運用の構造</a><a href="#c3">3. 枠ごとの型</a><a href="#c4">4. 部品</a><a href="#c5">5. 書き方の原則</a><a href="#c6">6. キャラへの当てはめ方</a><a href="#c7">7. なぞる手順と実例</a><a href="#c8">8. 分析で分かった数字</a>
+<span class="lab">目次</span><a href="#map">全体像</a><a href="#c0">はじめに</a><a href="#c1">1. 何が起きたか</a><a href="#c2">2. 運用の構造</a><a href="#c3">3. 枠ごとの型</a><a href="#c4">4. 部品</a><a href="#c5">5. 書き方の原則</a><a href="#c6">6. キャラへの当てはめ方</a><a href="#c7">7. なぞる手順と実例</a><a href="#c8">8. 分析で分かった数字</a>
 </div></nav>
 
 <main>
+<section class="band" id="map" style="border-top:0"><div class="wrap">
+<h2>このページの全体像</h2>
+<p class="point">全部で9つの章です。前半で国見が伸びた仕組みを知り、中盤で投稿の型をつかみ、後半で自分のキャラでなぞります。急いでいる人は、<b>第3章（型）と第7章（なぞる手順と実例）</b>だけ読めば書き始められます。</p>
+<div class="groups"><span><b>知る</b>：はじめに・第1章・第2章</span><span><b>型をつかむ</b>：第3章・第4章・第5章</span><span><b>なぞる</b>：第6章・第7章・第8章</span></div>
+<div class="overview">
+<a class="ov" href="#c0"><span class="c">はじめに</span><b>材料と用語</b><span>何を分析したか。親投稿・ツリー・ゴースト投稿・固定投稿・返信率の意味</span></a>
+<a class="ov" href="#c1"><span class="c">第1章</span><b>何が起きて伸びたのか</b><span>11月から返信が約40倍。伸びた理由と、伸びる投稿・伸びない投稿の差</span></a>
+<a class="ov" href="#c2"><span class="c">第2章</span><b>運用の構造</b><span>朝・サブ・夜・ゴースト投稿・固定投稿の1日の流れと、LINEまでの道のり</span></a>
+<a class="ov" href="#c3"><span class="c">第3章</span><b>枠ごとの型</b><span>5つの枠それぞれの段落の並び方を、国見の全文に色分けで書き込んで見せる</span></a>
+<a class="ov" href="#c4"><span class="c">第4章</span><b>部品</b><span>冒頭の型、時期や希少さの見せ方6種類、重ね方、ツリーの締め方</span></a>
+<a class="ov" href="#c5"><span class="c">第5章</span><b>書き方の原則</b><span>なぞってもずれやすい8つの点。国見の例と、ずれた例を並べて</span></a>
+<a class="ov" href="#c6"><span class="c">第6章</span><b>キャラへの当てはめ方</b><span>替えるのは言葉の辞書だけ。国見と日熊を並べて、替える場所を示す</span></a>
+<a class="ov" href="#c7"><span class="c">第7章</span><b>なぞる手順と実例</b><span>6つの手順と、国見と日熊の左右比較3組（夜・ゴースト投稿・朝）</span></a>
+<a class="ov" href="#c8"><span class="c">第8章</span><b>分析で分かった数字</b><span>ニュースの鮮度、テーマ、投稿時間、文字数、返信率などの一覧</span></a>
+</div>
+</div></section>
+
 
 <section class="band" id="c0"><div class="wrap">
-<div class="kicker">はじめに</div>
+<div class="chap"><span class="c">はじめに</span></div>
 <h2>何を材料に、何が分かるのか</h2>
 <div class="two">
 <div>
@@ -169,10 +200,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 </table></div>
 </div>
 </div>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c1"><div class="wrap">
-<div class="kicker">第1章</div>
+<div class="chap"><span class="c">第1章</span></div>
 <h2>11月2日の週から、返信の数がまるごと変わった</h2>
 <p class="point">10月までは返信がほぼつかなかったのに、11月に入って1投稿あたり40〜50件に跳ね上がりました。いいねは、返信の増加にあとからついてきています（返信といいねの相関は0.89）。</p>
 
@@ -209,10 +241,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 
 <h3>分かったこと3：本数を半分に絞り、1本を長くした</h3>
 <p>1日5本だった投稿を、11/10以降は「朝6時」「夜20時」の2本と、ときどきのサブ枠1本に絞っています。量で当てに行くのをやめ、1本に会話を集める運用に変えたと読めます。</p>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c2"><div class="wrap">
-<div class="kicker">第2章</div>
+<div class="chap"><span class="c">第2章</span></div>
 <h2>運用の構造：1日の流れと、LINEまでの道のり</h2>
 <p class="point">朝と夜の2本は、15日間1日も欠けていません。夜の投稿のテーマを、0時前後のゴースト投稿が引き継ぎ、固定投稿へ送る。この流れが毎日決まって回っています。</p>
 
@@ -235,10 +268,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <div class="panel"><h4>固定投稿</h4><p>「<mark class="t5">あなたの気脈から直接観て返す</mark>」</p><p>「<mark class="t6">ひとりずつしか観られない</mark>。順番は、来た順だ」</p></div>
 </div>
 <p class="note">ゴースト投稿で「個別に観てもらう必要がある」と思わせ、固定投稿で「無料」という入口を差し出す役割分担になっています。</p>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c3"><div class="wrap">
-<div class="kicker">第3章</div>
+<div class="chap"><span class="c">第3章</span></div>
 <h2>枠ごとの型：段落の役割と、国見の実物</h2>
 <p class="point">枠ごとに、段落の並び方（型）は決まっています。まず役割の並びを見て、次に国見の実物で確かめてください。色は段落の役割を表します。</p>
 <div class="legend"><span class="tag t1">特別感</span><span class="tag t2">時期・希少</span><span class="tag t3">権威</span><span class="tag t4">痛み・怒り・共感</span><span class="tag t5">解決・実践・ご利益</span><span class="tag t6">行動・コメント</span><span class="tag t7">引き・導線</span></div>
@@ -371,10 +405,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <div class="para"><span class="tag t7">締め</span><p><mark class="t6">ひとりずつしか観られない。順番は、来た順だ。</mark><br>何万とある投稿の中で、これがあなたの前に出て、ここまで読んだ。<br><mark class="t1">辿り着いた今が、あなたの順番だ。</mark></p></div>
 </div>
 </div>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c4"><div class="wrap">
-<div class="kicker">第4章</div>
+<div class="chap"><span class="c">第4章</span></div>
 <h2>部品：冒頭、時期と希少さの見せ方、ツリーの締め方</h2>
 <p class="point">冒頭と、時期や希少さの見せ方は、それ単体でも強い部品です。ただし最も伸びた投稿は、どれも2つ以上を重ねています。</p>
 
@@ -430,10 +465,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <li>1文字に意味を持たせる：「実践の誓いとして」「言霊の杭として」「受け取る許可として」</li>
 <li>逃げ道：「【穣】の1文字か、労う一言」のように選択肢を2つ用意する</li>
 </ol>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c5"><div class="wrap">
-<div class="kicker">第5章</div>
+<div class="chap"><span class="c">第5章</span></div>
 <h2>書き方の原則：なぞってもずれやすい8つの点</h2>
 <p class="point">構成をなぞっても、1語の選び方で効き目が落ちます。実際になぞって書いたときにずれた例と並べています。</p>
 
@@ -460,10 +496,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 
 <div class="rule"><div class="no">8</div><div><h3 style="margin-top:0">実践は、家の中で今日すぐできることにする</h3><p>国見の実践は、どれも家の中で数秒〜数十秒で終わります。神社や神棚は「わざわざ行く場所」「持っていない人もいるもの」として扱い、実践の場にはしていません。マンション住まいの人を考えると、屋根も使えません。</p>
 <div class="ex"><div class="ok"><b>国見</b>洗面所の鏡を30秒拭く ／ 箸を揃えて3秒「いただきます」</div><div class="ng"><b>ずれた例</b>近くの神社や神棚に手を合わせる ／ 家の屋根を見上げる</div></div></div></div>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c6"><div class="wrap">
-<div class="kicker">第6章</div>
+<div class="chap"><span class="c">第6章</span></div>
 <h2>自分のキャラに当てはめる考え方</h2>
 <p class="point">投稿の構造は、どのキャラでも同じです。替えるのはキャラの「言葉の辞書」だけ。国見と、国見をなぞって運用している日熊（元地鎮師の一族）を並べると、辞書のどこを替えればいいかが見えます。</p>
 <div class="scroll"><table class="stack">
@@ -485,10 +522,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <li><b>龍脈のような響きの強い言葉は、キャラが違っても使ってよい。</b>一般的な言葉はそのまま使い、言い回しだけを置き換えます。</li>
 <li><b>キャラの専門性は、ツリーやゴースト投稿で出す。</b>親投稿は、初めて見た人にも分かる言葉で書きます。</li>
 </ol>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c7"><div class="wrap">
-<div class="kicker">第7章</div>
+<div class="chap"><span class="c">第7章</span></div>
 <h2>なぞる手順と、実際になぞった例</h2>
 <ol class="steps">
 <li><div><b>元にする投稿を選ぶ</b>枠（朝・サブ・夜・ゴースト投稿）と、いいねの実績で選ぶ。最初は最も伸びた投稿から。</div></li>
@@ -568,10 +606,11 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <div class="para"><span class="tag t6">コメント</span><p>今日ドアノブを拭くと決めた方は、<mark class="t6">守りの証として温かな灯りをひとつ点し、このすぐ下に【護】の1文字か、ご自分の家への感謝の一言を、誓いとして刻んでください。</mark></p></div>
 </div>
 </div>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 <section class="band" id="c8"><div class="wrap">
-<div class="kicker">第8章</div>
+<div class="chap"><span class="c">第8章</span></div>
 <h2>分析で分かった数字</h2>
 <div class="scroll"><table class="stack">
 <thead><tr><th>項目</th><th>分かったこと</th></tr></thead>
@@ -587,6 +626,7 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
 <tr><td data-l="項目"><b>画像</b></td><td data-l="内容">直近2週間は画像・動画なしのテキストのみ。形式は伸びた要因ではない。</td></tr>
 </tbody></table></div>
 <p class="note">いいね数・返信数はすべて取得時点のもの。投稿から間もない投稿は、まだ数字が伸びきっていない。</p>
+<a class="back" href="#map">↑ 全体像に戻る</a>
 </div></section>
 
 </main>
@@ -602,6 +642,10 @@ footer{padding:28px max(5vw,16px);font-size:14px;color:var(--sub)}
     try{await navigator.clipboard.writeText(text);msg.textContent='コピーしました。自分のAIのチャット欄に貼り付けてください。';}
     catch(e){msg.textContent='コピーできませんでした。このページのURLをAIに貼り付けてください。';}
   });
+  const links=[...document.querySelectorAll('nav.toc a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));const on=links.find(a=>a.classList.contains('on'));if(on){const sc=on.parentElement;sc.scrollLeft=on.offsetLeft-sc.clientWidth/2+on.clientWidth/2;}}})},{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>io.observe(s));
 }
 </script>
 </body>
